@@ -679,7 +679,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 3c1f62650634d4d4ea73c5eeaa1c8d1a, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -760,6 +760,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625817915cd48674098ee9278f8785fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _state: 0
   toRotation: {x: 0, y: 0, z: 0, w: 0}
   nextRotation: 0
   rotationAMNT: -10
@@ -768,9 +769,9 @@ MonoBehaviour:
   rotationDecay: 2
   decayVariation: 0.3
   spinningAud: {fileID: 8300000, guid: 3c1f62650634d4d4ea73c5eeaa1c8d1a, type: 3}
-  goodAud: {fileID: 8300000, guid: 00294bd2eab6c8b489ca4bf7336745be, type: 3}
-  betterAud: {fileID: 8300000, guid: 5dc7fe82ef15fc149a3372086e5a107d, type: 3}
-  missAud: {fileID: 8300000, guid: 60cf2215a9963474abed418cc4e97d33, type: 3}
+  goodAud: {fileID: 8300000, guid: c16bf3ac6ec0d4645a6cc600f25b4631, type: 3}
+  betterAud: {fileID: 8300000, guid: a24d926d383e3b540a62ba58e3f7e0bd, type: 3}
+  missAud: {fileID: 8300000, guid: de79462ae01e50d4984439b8024c96c6, type: 3}
   comboAud: {fileID: 8300000, guid: 72e9988f58678da4b95325f33c4c2819, type: 3}
 --- !u!135 &135191880354598972
 SphereCollider:
