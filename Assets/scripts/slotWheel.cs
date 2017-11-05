@@ -80,7 +80,7 @@ public class slotWheel : MonoBehaviour {
 			//audio.Play ();
 			//audio.loop = true;
 
-			//rotationDecay = Random.Range (initialDecay - decayVariation, initialDecay + decayVariation);
+			rotationDecay = Random.Range (initialDecay - decayVariation, initialDecay + decayVariation);
 
 			currentItem = -1;
 			neededItem = -1;
