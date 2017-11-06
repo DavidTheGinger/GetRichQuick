@@ -5,15 +5,17 @@ using UnityEngine;
 public class slotWheel : MonoBehaviour {
 
 	//States
-	private enum State
+	public enum State
 	{
 		Inactive,
 		Started,
 		Stopped,
-		Spinning
+		Spinning,
+		Won,
+		Loss
 	}
 
-	State _state = State.Inactive;
+	public State _state = State.Inactive;
 
 	private Quaternion initialRotation;
 	public Quaternion toRotation;
@@ -28,11 +30,12 @@ public class slotWheel : MonoBehaviour {
 	public float rotationDecay = 1f;
 	public float decayVariation = .3f;
 
-	private float currentItem = -1f;
-	private float neededItem = -1f;
+	private int currentItem = -1;
+	private int neededItem = -2;
 	private float initialDecay = 1f;
 
 	private bool canPing = true;
+	private bool canPlayFinalAud = true;
 	private float pingDist = 15f;
 
 
@@ -54,8 +57,8 @@ public class slotWheel : MonoBehaviour {
 
 		//audio.Play();
 		//yield return new WaitForSeconds(audio.clip.length);
-		audio.clip = goodAud;
-		audio.Play();
+		//audio.clip = goodAud;
+		//audio.Play();
 
 		initialSpeed = rotationAMNT;
 
@@ -77,9 +80,10 @@ public class slotWheel : MonoBehaviour {
 			//audio.Play ();
 			//audio.loop = true;
 
-			rotationDecay = Random.Range(initialDecay - decayVariation, initialDecay + decayVariation);
+			rotationDecay = Random.Range (initialDecay - decayVariation, initialDecay + decayVariation);
 
-			currentItem = -1f;
+			currentItem = -1;
+			neededItem = -1;
 
 			rotationAMNT = initialSpeed;
 			_state = State.Spinning;
@@ -88,6 +92,7 @@ public class slotWheel : MonoBehaviour {
 		
 		case State.Spinning:
 			if (rotationAMNT == 0f) {
+				canPlayFinalAud = true;
 				_state = State.Stopped;
 			}
 
@@ -98,7 +103,7 @@ public class slotWheel : MonoBehaviour {
 			}
 			if (rotationAMNT >= minSpeed && Mathf.Abs (gameObject.transform.rotation.eulerAngles.z % 45) < snapDistance) {//Stop when we need to
 				nextRotation = Mathf.Floor (gameObject.transform.rotation.eulerAngles.z / 45f) * 45f;
-				currentItem = nextRotation;
+				currentItem = Mathf.FloorToInt(nextRotation/45f);
 				rotationAMNT = 0f;
 
 			}
@@ -122,12 +127,41 @@ public class slotWheel : MonoBehaviour {
 
 			break;
 
-		case State.Stopped:
+
+
+		case State.Stopped://check if you have won or not
 			audio.loop = false;
-			audio.clip = goodAud;
-			audio.Play ();
+
+			if (canPlayFinalAud) {
+				if (currentItem != neededItem) {
+					audio.clip = missAud;
+				} else {
+					audio.clip = goodAud;
+				}
+				canPlayFinalAud = false;
+				//audio.clip = missAud;
+				audio.Play ();
+			}
+
+
+
+			//_state = State.Inactive;
+			break;
+
+
+		case State.Loss:
+			print ("lose");
+
+
 			_state = State.Inactive;
 			break;
+		case State.Won:
+			print ("won");
+
+
+			_state = State.Inactive;
+			break;
+
 		}
 
 
@@ -138,12 +172,18 @@ public class slotWheel : MonoBehaviour {
 		_state = State.Started;
 	}
 
-	void giveValue(float temp){
+	public void giveValue(int temp){
 		neededItem = temp;
 	}
 
-	float getValue(){
+	public int getValue(){
 		return currentItem;
+	}
+
+	public void winLoss(State _temp){
+		_state = _temp;
+
+
 	}
 
 }
