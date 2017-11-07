@@ -28,6 +28,10 @@ public class smallLightDecision : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        if (GameObject.Find("lockbox light5").GetComponent<lightDecision5>().getDone())
+        {
+            return;
+        }
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 

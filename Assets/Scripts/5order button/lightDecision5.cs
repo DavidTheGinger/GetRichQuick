@@ -10,20 +10,32 @@ public class lightDecision5 : MonoBehaviour {
     private Color correctColor = Color.green;
     private Renderer rend;
     private int check;
+    private bool done;
     // Use this for initialization
     void Start () {
         rend = GetComponent<Renderer>();
         rend.material.color = originalColor;
         check = 0;
+        done = false;
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    public bool getDone()
+    {
+        return done;
+    }
+
+    // Update is called once per frame
+    void Update () {
+        if (done)
+        {
+            return;
+        }
 		for (int i = 0; i < lights.Length; i++)
         {
             if (lights[i].GetComponent<Renderer>().material.color == wrongColor)
             {
                 rend.material.color = wrongColor;
+                done = true;
             }
         }
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -46,6 +58,7 @@ public class lightDecision5 : MonoBehaviour {
         if (check == 5)
         {
             rend.material.color = correctColor;
+            done = true;
         }
     }
 }

@@ -17,7 +17,7 @@ public class wiresToCut : MonoBehaviour {
         rend = GetComponent<Renderer>();
         rend.material.color = originalColor;
 	}
-	void brokenState()
+	public void brokenState()
     {
         broken = true;
         rend.material.color = brokenColor;
@@ -26,7 +26,7 @@ public class wiresToCut : MonoBehaviour {
     {
         return broken;
     }
-    void sparkState()
+    public void sparkState()
     {
         spark = true;
         rend.material.color = sparkColor;
@@ -38,6 +38,10 @@ public class wiresToCut : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        if (GameObject.Find("lockbox light 4").GetComponent<lightDecision4>().getDone())
+        {
+            return;
+        }
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 

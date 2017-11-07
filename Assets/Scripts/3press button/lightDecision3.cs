@@ -10,14 +10,25 @@ public class lightDecision3 : MonoBehaviour {
     private Color originalColor = Color.red;
     private Color correctColor = Color.green;
     private Renderer rend;
+    private bool done;
     // Use this for initialization
     void Start () {
         rend = GetComponent<Renderer>();
         rend.material.color = originalColor;
+        done = false;
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    public bool getDone()
+    {
+        return done;
+    }
+
+    // Update is called once per frame
+    void Update () {
+        if (done)
+        {
+            return;
+        }
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
@@ -28,11 +39,13 @@ public class lightDecision3 : MonoBehaviour {
                 if (hit.transform.gameObject.name == wrongButtons[i].name && Input.GetMouseButtonDown(0))
                 {
                     rend.material.color = wrongColor;
+                    done = true;
                 }
             }
             if (hit.transform.gameObject.name == correctButton.name && Input.GetMouseButtonDown(0))
             {
                 rend.material.color = correctColor;
+                done = true;
             }
         }
     }

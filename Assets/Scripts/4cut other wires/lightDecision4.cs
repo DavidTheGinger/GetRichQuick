@@ -13,6 +13,7 @@ public class lightDecision4 : MonoBehaviour {
     private bool checkSpark;
     private int check;
     private ArrayList previousWires;
+    private bool done;
     // Use this for initialization
     void Start () {
         rend = GetComponent<Renderer>();
@@ -20,11 +21,20 @@ public class lightDecision4 : MonoBehaviour {
         checkSpark = true;
         check = 0;
         previousWires = new ArrayList();
+        done = false;
     }
-
+    public bool getDone()
+    {
+        return done;
+    }
     // Update is called once per frame
     void Update()
     {
+        if (done)
+        {
+            return;
+        }
+            
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
@@ -35,7 +45,9 @@ public class lightDecision4 : MonoBehaviour {
                 if (hit.transform.gameObject.name == correctWires[i].name && Input.GetMouseButtonDown(0))
                 {
                     rend.material.color = wrongColor;
+                    correctWires[i].GetComponent<wiresToCut>().sparkState();
                     checkSpark = false;
+                    done = true;
                 }
             }
             for (int j = 0; j < wiresToCut.Length; j++)
@@ -43,6 +55,7 @@ public class lightDecision4 : MonoBehaviour {
                 if (hit.transform.gameObject.name == wiresToCut[j].name && Input.GetMouseButtonDown(0) && !previousWires.Contains(wiresToCut[j]))
                 {
                     previousWires.Add(wiresToCut[j]);
+                    wiresToCut[j].GetComponent<wiresToCut>().brokenState();
                     check++;
                 }
             }
@@ -51,6 +64,7 @@ public class lightDecision4 : MonoBehaviour {
         if (check == wiresToCut.Length && checkSpark)
         {
             rend.material.color = correctColor;
+            done = true;
         }
     }
 }

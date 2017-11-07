@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class button : MonoBehaviour {
+public class orderButton: MonoBehaviour {
     private Light light;
 	// Use this for initialization
 	void Start () {
@@ -12,7 +12,7 @@ public class button : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (GameObject.Find("lockbox light 3").GetComponent<lightDecision3>().getDone())
+        if (GameObject.Find("lockbox light5").GetComponent<lightDecision5>().getDone())
         {
             return;
         }

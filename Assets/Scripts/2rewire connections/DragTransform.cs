@@ -56,6 +56,10 @@ class DragTransform : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        if (GameObject.Find("lockbox light 2").GetComponent<lightDecision2>().getDone())
+        {
+            return;
+        }
         if (dragging)
         {
             Plane plane = new Plane(new Vector3(2, 0, 0), new Vector3(2, 4, 0), new Vector3(1, 1, 0));

@@ -227,6 +227,7 @@
     <Compile Include="Assets\Scripts\4cut other wires\lightDecision4.cs" />
     <Compile Include="Assets\Scripts\4cut other wires\wiresToCut.cs" />
     <Compile Include="Assets\Scripts\5order button\lightDecision5.cs" />
+    <Compile Include="Assets\Scripts\5order button\orderButton.cs" />
     <Compile Include="Assets\Scripts\5order button\smallLightDecision.cs" />
     <Compile Include="Assets\Scripts\cameraMovement.cs" />
     <Compile Include="Assets\Scripts\Lever.cs" />
