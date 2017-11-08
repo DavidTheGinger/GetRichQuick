@@ -5013,6 +5013,12 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400002, guid: beaf5f6514877c54095cb238ed9d98b7, type: 3}
   m_PrefabInternal: {fileID: 1654170308}
+--- !u!114 &932247924 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114303062594849678, guid: 9416a85446faf954ebcbd65383d39274,
+    type: 2}
+  m_PrefabInternal: {fileID: 1578874925}
+  m_Script: {fileID: 11500000, guid: d730ddf9a4aee234c9a300c7dbd76db1, type: 3}
 --- !u!4 &952524033 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400004, guid: bf008213fcc29c74fb306200c34188e1, type: 3}
@@ -6392,10 +6398,21 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1742730743240024, guid: 92869a1eb4e172f47bc7ee1572cbb004, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 114790530790439818, guid: 92869a1eb4e172f47bc7ee1572cbb004,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 932247924}
+    - target: {fileID: 114309999511172226, guid: 92869a1eb4e172f47bc7ee1572cbb004,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 932247924}
+    - target: {fileID: 114804763975467526, guid: 92869a1eb4e172f47bc7ee1572cbb004,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 932247924}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 92869a1eb4e172f47bc7ee1572cbb004, type: 2}
   m_IsPrefabParent: 0
@@ -7808,6 +7825,11 @@ Prefab:
       propertyPath: PauseMenu
       value: 
       objectReference: {fileID: 389894082}
+    - target: {fileID: 114425706591513750, guid: 9416a85446faf954ebcbd65383d39274,
+        type: 2}
+      propertyPath: Ending
+      value: 
+      objectReference: {fileID: 1210119545}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9416a85446faf954ebcbd65383d39274, type: 2}
   m_IsPrefabParent: 0
@@ -10498,6 +10520,16 @@ Prefab:
     - target: {fileID: 1077939415173428, guid: c76f6d1f434c30f46940c926cbae3419, type: 2}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114276703140412508, guid: c76f6d1f434c30f46940c926cbae3419,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 114276703140412508, guid: c76f6d1f434c30f46940c926cbae3419,
+        type: 2}
+      propertyPath: m_FontData.m_MaxSize
+      value: 300
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c76f6d1f434c30f46940c926cbae3419, type: 2}
