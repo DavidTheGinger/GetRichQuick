@@ -38,12 +38,14 @@ public class lightDecision3 : MonoBehaviour {
             {
                 if (hit.transform.gameObject.name == wrongButtons[i].name && Input.GetMouseButtonDown(0))
                 {
+                    wrongButtons[i].transform.parent.gameObject.GetComponent<Animator>().SetTrigger("click");
                     rend.material.color = wrongColor;
                     done = true;
                 }
             }
             if (hit.transform.gameObject.name == correctButton.name && Input.GetMouseButtonDown(0))
             {
+                correctButton.transform.parent.gameObject.GetComponent<Animator>().SetTrigger("click");
                 rend.material.color = correctColor;
                 done = true;
             }

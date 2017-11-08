@@ -18,6 +18,11 @@ public class outlet : MonoBehaviour {
     {
         return selected;
     }
+
+    public void deSelect()
+    {
+        selected = false;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -33,9 +38,12 @@ public class outlet : MonoBehaviour {
         {
             if (hit.transform.gameObject.name == gameObject.name)
             {
-                if (Input.GetMouseButtonDown(0))
+                if (Input.GetMouseButtonDown(0) && !selected)
                 {
                     selected = true;
+                } else if (Input.GetMouseButtonDown(0) && selected)
+                {
+                    selected = false;
                 }
                 light.enabled = true;
             }

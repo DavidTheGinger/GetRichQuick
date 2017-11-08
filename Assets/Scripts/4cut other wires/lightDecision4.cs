@@ -45,6 +45,11 @@ public class lightDecision4 : MonoBehaviour {
             {
                 if (hit.transform.gameObject.name == correctWires[i].name && Input.GetMouseButtonDown(0))
                 {
+                    if (correctWires[i].name == "wireTwoStraightPrime (2)")
+                        GameObject.Find("snipTwo (1)").transform.localPosition = new Vector3(GameObject.Find("snipTwo (1)").transform.localPosition.x, -9.18f, GameObject.Find("snipTwo (1)").transform.localPosition.z);
+                    else if (correctWires[i].name == "wireFourStraightPrime (2)")
+                        GameObject.Find("snipFour (1)").transform.localPosition = new Vector3(GameObject.Find("snipFour (1)").transform.localPosition.x, -9.18f, GameObject.Find("snipFour (1)").transform.localPosition.z);
+                    Destroy(correctWires[i]);
                     rend.material.color = wrongColor;
                     correctWires[i].GetComponent<wiresToCut>().sparkState();
                     checkSpark = false;
@@ -55,6 +60,13 @@ public class lightDecision4 : MonoBehaviour {
             {
                 if (hit.transform.gameObject.name == wiresToCut[j].name && Input.GetMouseButtonDown(0) && !previousWires.Contains(wiresToCut[j]))
                 {
+                    if (wiresToCut[j].name == "wireOneStraightPrime (2)")
+                        GameObject.Find("snipOne (1)").transform.localPosition = new Vector3(GameObject.Find("snipOne (1)").transform.localPosition.x, -9.18f, GameObject.Find("snipOne (1)").transform.localPosition.z);
+                    else if (wiresToCut[j].name == "wireThreeStraightPrime (2)")
+                        GameObject.Find("snipThree (1)").transform.localPosition = new Vector3(GameObject.Find("snipThree (1)").transform.localPosition.x, -9.18f, GameObject.Find("snipThree (1)").transform.localPosition.z);
+                    else if (wiresToCut[j].name == "wireFiveStraightPrime (2)")
+                        GameObject.Find("snipFive (1)").transform.localPosition = new Vector3(GameObject.Find("snipFive (1)").transform.localPosition.x, -9.18f, GameObject.Find("snipFive (1)").transform.localPosition.z);
+                    Destroy(wiresToCut[j]);
                     previousWires.Add(wiresToCut[j]);
                     wiresToCut[j].GetComponent<wiresToCut>().brokenState();
                     check++;

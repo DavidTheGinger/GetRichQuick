@@ -6,21 +6,15 @@ public class wiresToCut : MonoBehaviour {
     public GameObject[] correctWires;
     private bool broken;
     private bool spark;
-    private Color brokenColor = Color.black;
-    private Color originalColor = Color.grey;
-    private Color sparkColor = Color.yellow;
     private Renderer rend;
 	// Use this for initialization
 	void Start () {
         broken = false;
         spark = false;
-        rend = GetComponent<Renderer>();
-        rend.material.color = originalColor;
 	}
 	public void brokenState()
     {
         broken = true;
-        rend.material.color = brokenColor;
     }
     public bool getBroken()
     {
@@ -29,7 +23,6 @@ public class wiresToCut : MonoBehaviour {
     public void sparkState()
     {
         spark = true;
-        rend.material.color = sparkColor;
     }
     public bool getSpark()
     {
@@ -56,7 +49,7 @@ public class wiresToCut : MonoBehaviour {
                         sparkState();
                     }
                 }
-                if (rend.material.color != sparkColor)
+                if (!spark)
                 {
                     brokenState();
                 }

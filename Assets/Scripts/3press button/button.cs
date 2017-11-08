@@ -7,8 +7,11 @@ public class button : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         light = GetComponent<Light>();
+        light.color = new Color(255, 216, 0);
+        light.range = 2;
+        light.intensity = 1;
         light.enabled = false;
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {

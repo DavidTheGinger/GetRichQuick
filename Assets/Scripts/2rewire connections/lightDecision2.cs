@@ -32,16 +32,24 @@ public class lightDecision2 : MonoBehaviour {
         int checkOccupied = 0;
         for (int i = 0; i < allWires.Length; i++)
         {
-            if (allWires[i].GetComponent<DragTransform>().getSelected())
+            if (allWires[i].GetComponent<DragTransform>().getState() == 1)
             {
                 checkOccupied++;
             }
-            if (allOutlets[i].GetComponent<outlet>().getSelected())
+
+            if (allWires[i].GetComponent<DragTransform>().getState() == -1)
             {
-                checkOccupied++;
+                rend.material.color = wrongColor;
+                done = true;
             }
+
+
+
         }
-        if (checkOccupied == 2 * allWires.Length)
+
+
+        
+        if (checkOccupied == allWires.Length)
         {
             int checkCorrect = 0;
             for (int i = 0; i < allWires.Length; i++)
@@ -50,16 +58,18 @@ public class lightDecision2 : MonoBehaviour {
                 {
                     checkCorrect++;
                 }
+                else
+                {
+                    rend.material.color = wrongColor;
+                    done = true;
+                }
             }
             if (checkCorrect == allWires.Length)
             {
                 rend.material.color = correctColor;
                 done = true;
-            } else
-            {
-                rend.material.color = wrongColor;
-                done = true;
-            }
+            } 
         }
+        
     }
 }
