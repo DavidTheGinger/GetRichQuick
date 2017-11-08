@@ -53,10 +53,12 @@ public class lightDecision1 : MonoBehaviour {
             if (hit.transform.gameObject.name == correctWire.name && Input.GetMouseButtonDown(0))
             {
                 GameObject.Find("snipOne").transform.localPosition = new Vector3(GameObject.Find("snipOne").transform.localPosition.x, -0.944f, GameObject.Find("snipOne").transform.localPosition.z);
+                GameObject.Find("openLockBox (1)").GetComponent<Animator>().SetTrigger("get");
                 Destroy(correctWire);
                 rend.material.color = correctColor;
+                GameObject.Find("UIManager").GetComponent<Timer>().changeScore(10000);
                 done = true;
             }
         }
     }
-}
+    }

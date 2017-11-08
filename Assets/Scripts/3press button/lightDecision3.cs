@@ -47,6 +47,8 @@ public class lightDecision3 : MonoBehaviour {
             {
                 correctButton.transform.parent.gameObject.GetComponent<Animator>().SetTrigger("click");
                 rend.material.color = correctColor;
+                GameObject.Find("UIManager").GetComponent<Timer>().changeScore(10000);
+                GameObject.Find("openLockBox (3)").GetComponent<Animator>().SetTrigger("get");
                 done = true;
             }
         }

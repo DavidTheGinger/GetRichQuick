@@ -9,10 +9,11 @@ public class Timer : MonoBehaviour
 
     public Text timertext;
     public Text Score;
+    public Text mainScore;
     public Color NewColor;
     public GameObject Ending;
     public GameObject Blink;
-    public int score = 50;
+    private int score;
     public float startTime;
 
     private int i;
@@ -28,6 +29,7 @@ public class Timer : MonoBehaviour
         i = 0;
         //startTime = 300f;
         b = false;
+        score = 0;
 
     }
 
@@ -71,7 +73,10 @@ public class Timer : MonoBehaviour
         Time.timeScale = 1;
         t = 300f;
     }
-
+    public void changeScore(int amount)
+    {
+        score += amount;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -84,6 +89,7 @@ public class Timer : MonoBehaviour
         string seconds = (t % 60).ToString("f2");
 
         timertext.text = minutes + ":" + seconds;
+        mainScore.text = "$ " + score;
 
         //Timer turns red when time is less than 30s
         if (t < 31f)

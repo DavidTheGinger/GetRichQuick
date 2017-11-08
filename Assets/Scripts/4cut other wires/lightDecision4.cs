@@ -77,6 +77,8 @@ public class lightDecision4 : MonoBehaviour {
         if (check == wiresToCut.Length && checkSpark)
         {
             rend.material.color = correctColor;
+            GameObject.Find("UIManager").GetComponent<Timer>().changeScore(10000);
+            GameObject.Find("openLockBox (4)").GetComponent<Animator>().SetTrigger("get");
             done = true;
         }
     }

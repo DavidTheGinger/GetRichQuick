@@ -91,7 +91,7 @@ class DragTransform : MonoBehaviour
                 else if (correctWire.name == "wireFourStraightPrime (1)")
                     correctWire.transform.localPosition = new Vector3(4.69f, -8.31f, -9.716f);
                 else if (correctWire.name == "wireFiveStraightPrime (1)")
-                    correctWire.transform.localPosition = new Vector3(6.52f, -8.25f, -9.57f);
+                    correctWire.transform.localPosition = new Vector3(6.37f, -8.25f, -9.57f);
                 light.enabled = false;
                 return;
             }

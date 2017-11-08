@@ -67,6 +67,8 @@ public class lightDecision2 : MonoBehaviour {
             if (checkCorrect == allWires.Length)
             {
                 rend.material.color = correctColor;
+                GameObject.Find("UIManager").GetComponent<Timer>().changeScore(20000);
+                GameObject.Find("openLockBox (2)").GetComponent<Animator>().SetTrigger("get");
                 done = true;
             } 
         }

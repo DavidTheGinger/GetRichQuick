@@ -58,6 +58,8 @@ public class lightDecision5 : MonoBehaviour {
         if (check == 5)
         {
             rend.material.color = correctColor;
+            GameObject.Find("UIManager").GetComponent<Timer>().changeScore(20000);
+            GameObject.Find("openLockBox (5)").GetComponent<Animator>().SetTrigger("get");
             done = true;
         }
     }
