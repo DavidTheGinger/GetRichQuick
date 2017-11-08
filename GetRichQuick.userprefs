@@ -1,22 +1,20 @@
-﻿<Properties StartupItem="GetRichQuick.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\dragTransform.cs">
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\scripts\Timer.cs">
     <Files>
-      <File FileName="Assets\Scripts\dragTransform.cs" Line="25" Column="19" />
+      <File FileName="Assets\scripts\cameraMovement.cs" Line="108" Column="165" />
+      <File FileName="Assets\scripts\Lever.cs" Line="1" Column="1" />
+      <File FileName="Assets\scripts\1cut wire\lightDecision1.cs" Line="1" Column="1" />
+      <File FileName="Assets\scripts\2rewire connections\lightDecision2.cs" Line="1" Column="1" />
+      <File FileName="Assets\scripts\3press button\lightDecision3.cs" Line="1" Column="1" />
+      <File FileName="Assets\scripts\4cut other wires\lightDecision4.cs" Line="1" Column="1" />
+      <File FileName="Assets\scripts\5order button\lightDecision5.cs" Line="1" Column="1" />
+      <File FileName="Assets\scripts\Timer.cs" Line="145" Column="13" />
+      <File FileName="Assets\scripts\slotWheel.cs" Line="1" Column="1" />
+      <File FileName="Assets\scripts\2rewire connections\DragTransform.cs" Line="1" Column="1" />
+      <File FileName="Assets\scripts\3press button\button.cs" Line="1" Column="1" />
+      <File FileName="Assets\scripts\5order button\smallLightDecision.cs" Line="1" Column="1" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="GetRichQuick" expanded="True">
-            <Node name="Assembly-CSharp" expanded="True">
-              <Node name="scripts" expanded="True">
-                <Node name="slotWheel.cs" selected="True" />
-              </Node>
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

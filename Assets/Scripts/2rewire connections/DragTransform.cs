@@ -93,6 +93,7 @@ class DragTransform : MonoBehaviour
                 else if (correctWire.name == "wireFiveStraightPrime (1)")
                     correctWire.transform.localPosition = new Vector3(6.37f, -8.25f, -9.57f);
                 light.enabled = false;
+				transform.localPosition = new Vector3 (1000, 1000, 1000);
                 return;
             }
             foreach(GameObject temp in allOutlets)

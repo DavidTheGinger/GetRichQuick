@@ -91,9 +91,10 @@ public class Lever : MonoBehaviour {
 				audio.clip = winAud;
 				if (!audio.isPlaying) {
 					audio.Play ();
+					GameObject.Find("UIManager").GetComponent<Timer>().changeScore(200000);
 				}
 
-				Instantiate(cash, new Vector3(2f,2f,2f), Quaternion.identity);
+				//Instantiate(cash, new Vector3(2f,2f,2f), Quaternion.identity);
 
 
 			} else { //if we lost
@@ -140,7 +141,7 @@ public class Lever : MonoBehaviour {
 			AudioSource audio = GetComponent<AudioSource>();
 			audio.clip = pullAud;
 			audio.Play ();
-
+			GameObject.Find("UIManager").GetComponent<Timer>().changeScore(-5);
 
 			spinner1wheel.giveValue (-1);
 			spinner2wheel.giveValue (-1);

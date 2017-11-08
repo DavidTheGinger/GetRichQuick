@@ -10,6 +10,7 @@ public class lightDecision1 : MonoBehaviour {
     private Color correctColor = Color.green;
     private Renderer rend;
     private bool done;
+	private bool correct = false;
 	// Use this for initialization
 	void Start () {
         rend = GetComponent<Renderer>();
@@ -21,6 +22,9 @@ public class lightDecision1 : MonoBehaviour {
     {
         return done;
     }
+	public bool isCorrect(){
+		return correct;
+	}
 
     // Update is called once per frame
     void Update () {
@@ -36,6 +40,9 @@ public class lightDecision1 : MonoBehaviour {
             {
                 if (hit.transform.gameObject.name == wrongWires[i].name && Input.GetMouseButtonDown(0))
                 {
+
+					AudioSource audio = GetComponent<AudioSource>();
+					audio.Play ();
              
                     if (wrongWires[i].name == "wireTwoStraightPrime") 
                         GameObject.Find("snipTwo").transform.localPosition = new Vector3(GameObject.Find("snipTwo").transform.localPosition.x, -0.944f, GameObject.Find("snipTwo").transform.localPosition.z);
@@ -52,9 +59,12 @@ public class lightDecision1 : MonoBehaviour {
             }
             if (hit.transform.gameObject.name == correctWire.name && Input.GetMouseButtonDown(0))
             {
+				AudioSource audio = GetComponent<AudioSource>();
+				audio.Play ();
                 GameObject.Find("snipOne").transform.localPosition = new Vector3(GameObject.Find("snipOne").transform.localPosition.x, -0.944f, GameObject.Find("snipOne").transform.localPosition.z);
                 GameObject.Find("openLockBox (1)").GetComponent<Animator>().SetTrigger("get");
                 Destroy(correctWire);
+				correct = true;
                 rend.material.color = correctColor;
                 GameObject.Find("UIManager").GetComponent<Timer>().changeScore(10000);
                 done = true;

@@ -10,6 +10,7 @@ public class lightDecision2 : MonoBehaviour {
     private Color originalColor = Color.red;
     private Renderer rend;
     private bool done;
+	private bool correct = false;
     // Use this for initialization
     void Start () {
         rend = GetComponent<Renderer>();
@@ -21,6 +22,9 @@ public class lightDecision2 : MonoBehaviour {
     {
         return done;
     }
+	public bool isCorrect(){
+		return correct;
+	}
 
     // Update is called once per frame
     void Update()
@@ -40,6 +44,8 @@ public class lightDecision2 : MonoBehaviour {
             if (allWires[i].GetComponent<DragTransform>().getState() == -1)
             {
                 rend.material.color = wrongColor;
+				AudioSource audio = GetComponent<AudioSource>();
+				audio.Play();
                 done = true;
             }
 
@@ -61,12 +67,15 @@ public class lightDecision2 : MonoBehaviour {
                 else
                 {
                     rend.material.color = wrongColor;
+					AudioSource audio = GetComponent<AudioSource>();
+					audio.Play();
                     done = true;
                 }
             }
             if (checkCorrect == allWires.Length)
             {
                 rend.material.color = correctColor;
+				correct = true;
                 GameObject.Find("UIManager").GetComponent<Timer>().changeScore(20000);
                 GameObject.Find("openLockBox (2)").GetComponent<Animator>().SetTrigger("get");
                 done = true;

@@ -11,6 +11,7 @@ public class lightDecision3 : MonoBehaviour {
     private Color correctColor = Color.green;
     private Renderer rend;
     private bool done;
+	private bool correct = false;
     // Use this for initialization
     void Start () {
         rend = GetComponent<Renderer>();
@@ -22,6 +23,9 @@ public class lightDecision3 : MonoBehaviour {
     {
         return done;
     }
+	public bool isCorrect(){
+		return correct;
+	}
 
     // Update is called once per frame
     void Update () {
@@ -38,6 +42,8 @@ public class lightDecision3 : MonoBehaviour {
             {
                 if (hit.transform.gameObject.name == wrongButtons[i].name && Input.GetMouseButtonDown(0))
                 {
+					AudioSource audio = GetComponent<AudioSource>();
+					audio.Play();
                     wrongButtons[i].transform.parent.gameObject.GetComponent<Animator>().SetTrigger("click");
                     rend.material.color = wrongColor;
                     done = true;
@@ -45,8 +51,11 @@ public class lightDecision3 : MonoBehaviour {
             }
             if (hit.transform.gameObject.name == correctButton.name && Input.GetMouseButtonDown(0))
             {
+				AudioSource audio = GetComponent<AudioSource>();
+				audio.Play();
                 correctButton.transform.parent.gameObject.GetComponent<Animator>().SetTrigger("click");
                 rend.material.color = correctColor;
+				correct = true;
                 GameObject.Find("UIManager").GetComponent<Timer>().changeScore(10000);
                 GameObject.Find("openLockBox (3)").GetComponent<Animator>().SetTrigger("get");
                 done = true;

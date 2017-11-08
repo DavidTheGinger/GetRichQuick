@@ -19,17 +19,21 @@ public class Timer : MonoBehaviour
     private int i;
     private bool b;
     private float t;
+	private float diff = 0f;
+
+	public Material testMat;
+	AudioSource audio;
 
     // Use this for initialization
     void Start()
     {
-
+		audio = GetComponent<AudioSource>();
         Ending.SetActive(false);
         t = startTime;
         i = 0;
         //startTime = 300f;
         b = false;
-        score = 0;
+        score = 300;
 
     }
 
@@ -47,6 +51,10 @@ public class Timer : MonoBehaviour
         }
 
     }
+
+	public float getTimeLeft(){
+		return t;
+	}
 
     public void RestartE()
     {
@@ -76,6 +84,14 @@ public class Timer : MonoBehaviour
     public void changeScore(int amount)
     {
         score += amount;
+		//if (amount > 0) {
+		//	audio.pitch = Random.Range (.8f, 1.2f);
+		//	audio.Play ();
+		//	diff = amount / 1000;
+			//audio.pitch = Random.Range (.8f, 1.2f);
+		//}
+
+
     }
     // Update is called once per frame
     void Update()
@@ -84,7 +100,14 @@ public class Timer : MonoBehaviour
         //Set timer
        // t = startTime - Time.time;
         t -= Time.deltaTime;
-
+		/*
+		if (diff > 0) {
+			diff -= Time.deltaTime;
+			audio.pitch = Random.Range (.8f, 1.2f);
+			audio.loop = true;
+		} else {
+			audio.loop = false;
+		}*/
         string minutes = ((int)t / 60).ToString();
         string seconds = (t % 60).ToString("f2");
 
@@ -110,10 +133,19 @@ public class Timer : MonoBehaviour
             Ending.SetActive(true);
             Time.timeScale = 0;
 
-            if (i <= score)
+            if (i <= score/2)
             {
                 Score.text = "$ " + i;
-                i = i + 10;
+				if (score / 2 - i > 10000) {
+					i = i + 1000;
+				} else if (score / 2 - i > 1000) {
+					i = i + 100;
+				} else if (score / 2 - i > 100) {
+					i = i + 10;
+				} else {
+					i = i + 1;
+				}
+                
             }
         }
     }

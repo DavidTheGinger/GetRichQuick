@@ -14,6 +14,7 @@ public class lightDecision4 : MonoBehaviour {
     private int check;
     private ArrayList previousWires;
     private bool done;
+	private bool correct = false;
     // Use this for initialization
     void Start () {
         rend = GetComponent<Renderer>();
@@ -28,6 +29,9 @@ public class lightDecision4 : MonoBehaviour {
         return done;
     }
 
+	public bool isCorrect(){
+		return correct;
+	}
     // Update is called once per frame
     void Update()
     {
@@ -45,6 +49,8 @@ public class lightDecision4 : MonoBehaviour {
             {
                 if (hit.transform.gameObject.name == correctWires[i].name && Input.GetMouseButtonDown(0))
                 {
+					AudioSource audio = GetComponent<AudioSource>();
+					audio.Play();
                     if (correctWires[i].name == "wireTwoStraightPrime (2)")
                         GameObject.Find("snipTwo (1)").transform.localPosition = new Vector3(GameObject.Find("snipTwo (1)").transform.localPosition.x, -9.18f, GameObject.Find("snipTwo (1)").transform.localPosition.z);
                     else if (correctWires[i].name == "wireFourStraightPrime (2)")
@@ -60,13 +66,16 @@ public class lightDecision4 : MonoBehaviour {
             {
                 if (hit.transform.gameObject.name == wiresToCut[j].name && Input.GetMouseButtonDown(0) && !previousWires.Contains(wiresToCut[j]))
                 {
+					AudioSource audio = GetComponent<AudioSource>();
+					audio.Play();
                     if (wiresToCut[j].name == "wireOneStraightPrime (2)")
                         GameObject.Find("snipOne (1)").transform.localPosition = new Vector3(GameObject.Find("snipOne (1)").transform.localPosition.x, -9.18f, GameObject.Find("snipOne (1)").transform.localPosition.z);
                     else if (wiresToCut[j].name == "wireThreeStraightPrime (2)")
                         GameObject.Find("snipThree (1)").transform.localPosition = new Vector3(GameObject.Find("snipThree (1)").transform.localPosition.x, -9.18f, GameObject.Find("snipThree (1)").transform.localPosition.z);
                     else if (wiresToCut[j].name == "wireFiveStraightPrime (2)")
                         GameObject.Find("snipFive (1)").transform.localPosition = new Vector3(GameObject.Find("snipFive (1)").transform.localPosition.x, -9.18f, GameObject.Find("snipFive (1)").transform.localPosition.z);
-                    Destroy(wiresToCut[j]);
+                    //Destroy(wiresToCut[j]);
+					wiresToCut[j].transform.localPosition = new Vector3(-1000,-1000,-1000);
                     previousWires.Add(wiresToCut[j]);
                     wiresToCut[j].GetComponent<wiresToCut>().brokenState();
                     check++;
@@ -77,6 +86,7 @@ public class lightDecision4 : MonoBehaviour {
         if (check == wiresToCut.Length && checkSpark)
         {
             rend.material.color = correctColor;
+			correct = true;
             GameObject.Find("UIManager").GetComponent<Timer>().changeScore(10000);
             GameObject.Find("openLockBox (4)").GetComponent<Animator>().SetTrigger("get");
             done = true;

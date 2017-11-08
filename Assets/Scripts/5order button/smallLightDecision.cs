@@ -39,6 +39,8 @@ public class smallLightDecision : MonoBehaviour {
         {
             if (hit.transform.gameObject.name == button.name && Input.GetMouseButtonDown(0))
             {
+				AudioSource audio = GetComponent<AudioSource>();
+				audio.Play();
                 button.transform.parent.gameObject.GetComponent<Animator>().SetTrigger("click");
                 for (int i = 0; i < previousLights.Length; i++)
                 {

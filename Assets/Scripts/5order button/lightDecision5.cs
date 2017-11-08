@@ -11,6 +11,7 @@ public class lightDecision5 : MonoBehaviour {
     private Renderer rend;
     private int check;
     private bool done;
+	private bool correct = false;
     // Use this for initialization
     void Start () {
         rend = GetComponent<Renderer>();
@@ -18,6 +19,10 @@ public class lightDecision5 : MonoBehaviour {
         check = 0;
         done = false;
     }
+
+	public bool isCorrect(){
+		return correct;
+	}
 
     public bool getDone()
     {
@@ -58,6 +63,7 @@ public class lightDecision5 : MonoBehaviour {
         if (check == 5)
         {
             rend.material.color = correctColor;
+			correct = true;
             GameObject.Find("UIManager").GetComponent<Timer>().changeScore(20000);
             GameObject.Find("openLockBox (5)").GetComponent<Animator>().SetTrigger("get");
             done = true;
