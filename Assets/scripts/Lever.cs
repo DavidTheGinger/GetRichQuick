@@ -67,6 +67,22 @@ public class Lever : MonoBehaviour {
 
 
 		if(spinner1wheel._state == slotWheel.State.Stopped && spinner2wheel._state == slotWheel.State.Stopped && spinner3wheel._state == slotWheel.State.Stopped ){
+
+			GameObject temp = transform.root.gameObject;
+
+			if (temp) {
+				Animator animate = temp.GetComponent<Animator> ();
+				if (animate) {
+					//animate.speed = 1;
+					animate.SetBool("Pulled", false);
+					print("can be pulled");
+				}
+			}
+
+
+
+
+
 			if ((value1 == value2) && (value1 == value3)) {//if we won
 				spinner1wheel.winLoss (slotWheel.State.Won);
 				spinner2wheel.winLoss (slotWheel.State.Won);
@@ -90,7 +106,7 @@ public class Lever : MonoBehaviour {
 					audio.Play ();
 				}
 			}
-			print ("all stopped");
+			//print ("all stopped");
 		}
 
 
@@ -105,6 +121,19 @@ public class Lever : MonoBehaviour {
 		slotWheel spinner3wheel = spinner3.GetComponent<slotWheel> ();
 			
 		if(spinner1wheel._state == slotWheel.State.Inactive && spinner2wheel._state == slotWheel.State.Inactive && spinner3wheel._state == slotWheel.State.Inactive ){
+
+			GameObject temp = transform.root.gameObject;
+
+			if (temp) {
+				Animator animate = temp.GetComponent<Animator> ();
+				if (animate) {
+					//animate.speed = 1;
+					animate.SetBool("Pulled", true);
+					print("pulled");
+				}
+			}
+
+
 			spinner1wheel.pulled ();
 			spinner2wheel.pulled ();
 			spinner3wheel.pulled ();
