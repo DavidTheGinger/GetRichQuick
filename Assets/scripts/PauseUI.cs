@@ -42,11 +42,13 @@ public class PauseUI : MonoBehaviour
     public void resume()
     {
         paused = false;
+        print ("R");
     }
 
     public void PauseBtn()
     {
         paused = true;
+        print("R");
     }
 
     public void Restart()
