@@ -150,13 +150,13 @@ public class slotWheel : MonoBehaviour {
 
 
 		case State.Loss:
-			print ("lose");
+			//print ("lose");
 
 
 			_state = State.Inactive;
 			break;
 		case State.Won:
-			print ("won");
+			//print ("won");
 
 
 			_state = State.Inactive;

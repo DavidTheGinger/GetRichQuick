@@ -14,6 +14,7 @@ public class orderButton: MonoBehaviour {
 	void Update () {
         if (GameObject.Find("lockbox light5").GetComponent<lightDecision5>().getDone())
         {
+            light.enabled = false;
             return;
         }
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);

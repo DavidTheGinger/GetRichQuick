@@ -14,6 +14,7 @@ public class button : MonoBehaviour {
 	void Update () {
         if (GameObject.Find("lockbox light 3").GetComponent<lightDecision3>().getDone())
         {
+            light.enabled = false;
             return;
         }
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);

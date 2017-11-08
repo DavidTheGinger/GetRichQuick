@@ -3,10 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class cameraMovement : MonoBehaviour {
-    public GameObject downArrow;
-    public GameObject upArrow;
-    public GameObject nod;
-    public GameObject shake;
 
 	public float maxRotation = 70f;
 
@@ -23,7 +19,9 @@ public class cameraMovement : MonoBehaviour {
 	private float nextY = 0f;
 	private float maxY = 0f;
 	private float maxX = 0f;
-
+    private bool zoomed = false;
+    private bool end = false;
+    private Vector3 backPosition;
 
 	// Use this for initialization
 	void Start () {
@@ -32,7 +30,9 @@ public class cameraMovement : MonoBehaviour {
 		pastMX = Input.mousePosition.x;
 		pastMY = Input.mousePosition.y;
 		initialRotation = transform.rotation;
-	}
+        backPosition = new Vector3(transform.position.x, transform.position.y, -9);
+
+    }
 	void nodMotion()
     {
     	
@@ -45,11 +45,33 @@ public class cameraMovement : MonoBehaviour {
 		print ("shook");
     }
 		
-
     // Update is called once per frame
     void Update() {
+        if (!zoomed)
+        {
+            if (GameObject.Find("frontPanelRemoved"))
+            {
+                if (GameObject.Find("frontPanelRemoved").GetComponent<panelMovement>().getDone())
+                {
+                    print("test");
+                    zoomed = true;
+                }
+            }
+            else
+            {
+                zoomed = true;
+            }
+        }
+        else if (!end)
+        {
+            transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, transform.position.y, -9), 5 * Time.deltaTime);
+            if (transform.position.z >= -9)
+            {
+                end = true;
+            }
+        }
 
-		if (Input.GetMouseButtonUp(1)) {
+        if (Input.GetMouseButtonUp(1)) {
 
 			if (maxX > 5f || maxY > 5f) {
 				if (maxX > maxY) {
@@ -92,28 +114,16 @@ public class cameraMovement : MonoBehaviour {
 
 			transform.rotation = Quaternion.Lerp(transform.rotation,initialRotation,7 * Time.deltaTime );
 
-
-
-
-
-			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
-			RaycastHit hit;
 			Vector3 direction = new Vector3 (0.0f, 0.1f, 0.0f);
-			if (Physics.Raycast (ray, out hit, 100)) {
-				if (hit.transform.gameObject.name == downArrow.name && Input.GetMouseButton (0)) {
-					if (transform.position.y >= -22) {
+				if (Input.GetKey("down")) {
+					if (transform.position.y >= -11) {
 						transform.position -= direction;
-						downArrow.transform.position -= direction;
-						upArrow.transform.position -= direction;
 					}
-				} else if (hit.transform.gameObject.name == upArrow.name && Input.GetMouseButton (0)) {
-					if (transform.position.y <= 2) {
+				} else if (Input.GetKey("up")) {
+					if (transform.position.y <= 13) {
 						transform.position += direction;
-						downArrow.transform.position += direction;
-						upArrow.transform.position += direction;
 					}
 				}
-			}
 		}
 	}
 }

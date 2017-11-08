@@ -1,0 +1,53 @@
+fileFormatVersion: 2
+guid: c12cb1bc88d11cf48b0ac47dd0dcb9f5
+timeCreated: 1510100738
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Muzarela
+  fontNames:
+  - Muzarela
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 342cdd502484f934a93eb1dbd1855fe0, type: 3}
+  - {fileID: 12800000, guid: 0f20ab31fd6923c4fbbb41be881f5c49, type: 3}
+  - {fileID: 12800000, guid: 049ae752fa6702345b96a91c8366a775, type: 3}
+  - {fileID: 12800000, guid: 89ad04a23fbc0ef4f8d12f6ed9c6ddbe, type: 3}
+  - {fileID: 12800000, guid: 1b072a43bab44a3448db02c86add4529, type: 3}
+  - {fileID: 12800000, guid: 50907114b617218459435c317d56d78d, type: 3}
+  - {fileID: 12800000, guid: 45efc464ed9ac1c4984c5819d2f31e4d, type: 3}
+  - {fileID: 12800000, guid: 7fe53fc4a595faf4093ce9d55456b5e6, type: 3}
+  - {fileID: 12800000, guid: 62f893e4a84ea574382fee50e3de16bd, type: 3}
+  - {fileID: 12800000, guid: 1269afe5157107e4ebdba84e8dd4b689, type: 3}
+  - {fileID: 12800000, guid: 3cb4647771a7f81408989f4c7f277621, type: 3}
+  - {fileID: 12800000, guid: 9b0522d765a7b5c4796ac4428285d65c, type: 3}
+  - {fileID: 12800000, guid: 99180c1887024844580c25b2ac0230e3, type: 3}
+  - {fileID: 12800000, guid: 8a26e848017a88f4880f22c3048a902a, type: 3}
+  - {fileID: 12800000, guid: 181bb0983c3e106489282347e2a5bf4f, type: 3}
+  - {fileID: 12800000, guid: 7d1891e880fcd474489485f7c11cae2b, type: 3}
+  - {fileID: 12800000, guid: 360229097d17d884da905bac6caeecf0, type: 3}
+  - {fileID: 12800000, guid: bf55ca397f72eca4fb74d170a259dbd1, type: 3}
+  - {fileID: 12800000, guid: 394e70498b1c29841b51c47999b81733, type: 3}
+  - {fileID: 12800000, guid: 5905c4593a491894ba72efbee938b3fd, type: 3}
+  - {fileID: 12800000, guid: 487d3869eaabecc4395b858f4f3beeea, type: 3}
+  - {fileID: 12800000, guid: 643164f952b55ab408a285e6efc414ae, type: 3}
+  - {fileID: 12800000, guid: 437a4b3a824194e4292398b0d0fc63fb, type: 3}
+  - {fileID: 12800000, guid: 5a161ddc53b1c944a9263b7b73a3d8da, type: 3}
+  - {fileID: 12800000, guid: 64a060fc93bbddd49a6225c622ec8bd9, type: 3}
+  - {fileID: 12800000, guid: b0b1f8fce7af2d146aad92edd73f1c72, type: 3}
+  - {fileID: 12800000, guid: 8cd6b44d0c2015340918db7b7a3f2572, type: 3}
+  - {fileID: 12800000, guid: 1c2c5f3e83ebcca4caa92abbc48f3c57, type: 3}
+  - {fileID: 12800000, guid: 3bdbb8eed8d29bd4a827b2520c64b578, type: 3}
+  - {fileID: 12800000, guid: 82d4f84fb7121434fba0afbbc436d5a8, type: 3}
+  - {fileID: 12800000, guid: 9e06b3bff1432664591bf992261451de, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

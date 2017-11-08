@@ -222,6 +222,7 @@
     <Compile Include="Assets\Scripts\1cut wire\lightDecision1.cs" />
     <Compile Include="Assets\Scripts\2rewire connections\DragTransform.cs" />
     <Compile Include="Assets\Scripts\2rewire connections\lightDecision2.cs" />
+    <Compile Include="Assets\Scripts\2rewire connections\outlet.cs" />
     <Compile Include="Assets\Scripts\3press button\button.cs" />
     <Compile Include="Assets\Scripts\3press button\lightDecision3.cs" />
     <Compile Include="Assets\Scripts\4cut other wires\lightDecision4.cs" />
@@ -231,6 +232,10 @@
     <Compile Include="Assets\Scripts\5order button\smallLightDecision.cs" />
     <Compile Include="Assets\Scripts\cameraMovement.cs" />
     <Compile Include="Assets\Scripts\Lever.cs" />
+    <Compile Include="Assets\Scripts\OpenBtns.cs" />
+    <Compile Include="Assets\Scripts\panelMovement.cs" />
+    <Compile Include="Assets\Scripts\PauseUI.cs" />
+    <Compile Include="Assets\Scripts\screwLight.cs" />
     <Compile Include="Assets\Scripts\slotWheel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

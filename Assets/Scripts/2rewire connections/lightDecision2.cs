@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class lightDecision2 : MonoBehaviour {
     public GameObject[] allWires;
+    public GameObject[] allOutlets;
     private Color wrongColor = Color.grey;
     private Color correctColor = Color.green;
     private Color originalColor = Color.red;
     private Renderer rend;
     private bool done;
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         rend = GetComponent<Renderer>();
         rend.material.color = originalColor;
         done = false;
@@ -31,19 +32,16 @@ public class lightDecision2 : MonoBehaviour {
         int checkOccupied = 0;
         for (int i = 0; i < allWires.Length; i++)
         {
-            if (allWires[i].GetComponent<DragTransform>().getOccupied())
+            if (allWires[i].GetComponent<DragTransform>().getSelected())
             {
-                if (allWires[i].GetComponent<DragTransform>().getCorrect())
-                {
-                    checkOccupied++;
-                } else
-                {
-                    rend.material.color = wrongColor;
-                    done = true;
-                }
+                checkOccupied++;
+            }
+            if (allOutlets[i].GetComponent<outlet>().getSelected())
+            {
+                checkOccupied++;
             }
         }
-        if (checkOccupied == allWires.Length)
+        if (checkOccupied == 2 * allWires.Length)
         {
             int checkCorrect = 0;
             for (int i = 0; i < allWires.Length; i++)
@@ -57,7 +55,11 @@ public class lightDecision2 : MonoBehaviour {
             {
                 rend.material.color = correctColor;
                 done = true;
-            } 
+            } else
+            {
+                rend.material.color = wrongColor;
+                done = true;
+            }
         }
     }
 }

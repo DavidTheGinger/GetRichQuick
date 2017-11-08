@@ -7,26 +7,19 @@ class DragTransform : MonoBehaviour
     public GameObject correctOutlet;
     private bool correct = false;
     private bool occupied = false;
-    private bool dragging = false;
-    private float distance;
-    private Renderer rend;
-    private float duration = 0.1f;
-    private float elapsedTime = 0;
-    private Vector3 scanPos, screenPoint;
+    private Light light;
+    private bool selected;
     void Start()
     {
-        rend = GetComponent<Renderer>();
-        scanPos = gameObject.transform.position;
-        screenPoint = Camera.main.WorldToScreenPoint(scanPos);
+        light = GetComponent<Light>();
+        light.color = new Color(255, 216, 0);
+        light.range = 1;
+        light.intensity = 1;
+        light.enabled = false;
+
+        selected = false;
     }
-    /*void OnMouseEnter()
-    {
-        rend.material.color = mouseOverColor;
-    }
-    void OnMouseExit()
-    {
-        rend.material.color = originalColor;
-    }*/
+   
     public bool getCorrect()
     {
         return correct;
@@ -35,55 +28,44 @@ class DragTransform : MonoBehaviour
     {
         return occupied;
     }
-    void OnMouseDown()
+    public bool getSelected()
     {
-        distance = Vector3.Distance(transform.position, Camera.main.transform.position);
-        dragging = true;
+        return selected;
     }
-    void OnMouseUp()
-    {
-        dragging = false;
-        
-    }
-    private void snap(GameObject other)
-    {
-        while(elapsedTime < duration)
-        {
-            transform.position = Vector3.Lerp(transform.position, other.transform.position, elapsedTime / duration);
-            elapsedTime += Time.deltaTime;
-        }
-        transform.position = other.transform.position;
-    }
-    private void FixedUpdate()
+    
+    void Update()
     {
         if (GameObject.Find("lockbox light 2").GetComponent<lightDecision2>().getDone())
         {
+            light.enabled = false;
             return;
         }
-        if (dragging)
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, 100))
         {
-            Plane plane = new Plane(new Vector3(2, 0, 0), new Vector3(2, 4, 0), new Vector3(1, 1, 0));
-            Ray ray = Camera.main.ScreenPointToRay(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
-            if (plane.Raycast(ray, out distance))
-                transform.position = ray.GetPoint(distance);
+            if (hit.transform.gameObject.name == gameObject.name)
+            {
+                if (Input.GetMouseButtonDown(0))
+                {
+                    selected = true;
+                }
+                light.enabled = true;
+            }
+            else
+            {
+                if (!selected) light.enabled = false;
+            }
         }
         else
         {
-            for (int i = 0; i < allOutlets.Length; i++)
-            {
-                if (Vector3.Distance(transform.position, allOutlets[i].transform.position) < 1)
-                {
-                    snap(allOutlets[i]);
-                    occupied = true;
-                }
-            }
+            if (!selected) light.enabled = false;
         }
-        if (transform.position == correctOutlet.transform.position)
+        if (selected && correctOutlet.GetComponent<outlet>().getSelected())
         {
             correct = true;
-        } else
-        {
-            correct = false;
         }
+
     }
 }

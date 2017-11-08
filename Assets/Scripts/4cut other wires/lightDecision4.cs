@@ -27,6 +27,7 @@ public class lightDecision4 : MonoBehaviour {
     {
         return done;
     }
+
     // Update is called once per frame
     void Update()
     {

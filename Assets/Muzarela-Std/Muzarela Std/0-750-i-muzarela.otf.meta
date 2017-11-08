@@ -1,0 +1,26 @@
+fileFormatVersion: 2
+guid: 1b072a43bab44a3448db02c86add4529
+timeCreated: 1510100736
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Muzarela
+  fontNames:
+  - Muzarela
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 0f20ab31fd6923c4fbbb41be881f5c49, type: 3}
+  - {fileID: 12800000, guid: 049ae752fa6702345b96a91c8366a775, type: 3}
+  - {fileID: 12800000, guid: 1269afe5157107e4ebdba84e8dd4b689, type: 3}
+  - {fileID: 12800000, guid: 181bb0983c3e106489282347e2a5bf4f, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
