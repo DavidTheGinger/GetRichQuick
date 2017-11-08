@@ -1,0 +1,35 @@
+fileFormatVersion: 2
+guid: 487d3869eaabecc4395b858f4f3beeea
+timeCreated: 1510100737
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Muzarela
+  fontNames:
+  - Muzarela
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 342cdd502484f934a93eb1dbd1855fe0, type: 3}
+  - {fileID: 12800000, guid: 0f20ab31fd6923c4fbbb41be881f5c49, type: 3}
+  - {fileID: 12800000, guid: 049ae752fa6702345b96a91c8366a775, type: 3}
+  - {fileID: 12800000, guid: 1b072a43bab44a3448db02c86add4529, type: 3}
+  - {fileID: 12800000, guid: 45efc464ed9ac1c4984c5819d2f31e4d, type: 3}
+  - {fileID: 12800000, guid: 1269afe5157107e4ebdba84e8dd4b689, type: 3}
+  - {fileID: 12800000, guid: 3cb4647771a7f81408989f4c7f277621, type: 3}
+  - {fileID: 12800000, guid: 181bb0983c3e106489282347e2a5bf4f, type: 3}
+  - {fileID: 12800000, guid: 360229097d17d884da905bac6caeecf0, type: 3}
+  - {fileID: 12800000, guid: 394e70498b1c29841b51c47999b81733, type: 3}
+  - {fileID: 12800000, guid: 437a4b3a824194e4292398b0d0fc63fb, type: 3}
+  - {fileID: 12800000, guid: 1c2c5f3e83ebcca4caa92abbc48f3c57, type: 3}
+  - {fileID: 12800000, guid: 3bdbb8eed8d29bd4a827b2520c64b578, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
