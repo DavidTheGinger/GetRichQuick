@@ -6,13 +6,21 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour {
 
     public Text timertext;
+    public Text Score;
     public Color NewColor;
-    private float startTime;
+    public GameObject Ending;
+    public int score = 50;
+    private int i;
+
+
+    public float startTime;
 
 	// Use this for initialization
 	void Start () {
 
-        startTime = 300.0f;
+        Ending.SetActive(false);
+
+        i = 0;
 		
 	}
 	
@@ -25,11 +33,21 @@ public class Timer : MonoBehaviour {
 
         timertext.text = minutes + ":" + seconds;
 
-        if (t <= 30f)
+        if (t < 31f)
         {
             timertext.color = NewColor;
         }
 
-        if (t <= 0) { t = 0; }
+        if (t <= 0)
+        {
+            t = 0;
+            Ending.SetActive(true);
+
+            if (i <= score)
+            {
+                Score.text = "$ " + i;
+                i = i+10;
+            }
+        }
 	}
 }

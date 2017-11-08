@@ -53,7 +53,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timertext: {fileID: 0}
+  Score: {fileID: 0}
   NewColor: {r: 0.9485294, g: 0.27200472, b: 0.27200472, a: 0.5647059}
+  Ending: {fileID: 0}
+  score: 10000
+  startTime: 300
 --- !u!114 &114425706591513750
 MonoBehaviour:
   m_ObjectHideFlags: 1

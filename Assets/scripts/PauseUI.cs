@@ -41,7 +41,7 @@ public class PauseUI : MonoBehaviour
 
     public void resume()
     {
-        paused = false;;
+        paused = false;
     }
 
     public void PauseBtn()
